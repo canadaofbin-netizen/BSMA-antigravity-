@@ -17,7 +17,7 @@ Based on your feedback regarding inefficiency, I updated the AI instruction manu
 - **Inserted "Step 0: Inclusion/Exclusion Triage"** as the absolute first priority. AI agents are now explicitly instructed to halt all data and metadata extraction immediately if a paper is flagged as `0 = Exclude`, outputting only a 1-row shadow report. This will save significant processing time and prevent hallucinated data extraction attempts on theoretical papers.
 
 ## 3. Subagent-Assisted Measure Descriptor Extraction (Columns 34-39)
-To prevent manual fatigue and omission, two subagents were deployed to scan the PDFs for granular measure details of every single Non-Boundary-Spanning variable in Liu (2024) and Marrone (2007).
+To prevent manual fatigue and omission, Subagent 1 and Subagent 2 were deployed to scan the PDFs for granular measure details of every single Non-Boundary-Spanning variable in the assigned papers.
 - **Subagents Extracted:** Number of items, anchor range, report type (Self vs Others), and the exact source citation (e.g. McAllister 1995, Beehr et al. 1976).
 - **Injection Complete:** All 81 rows of data were successfully populated with these exact measure descriptors.
 
