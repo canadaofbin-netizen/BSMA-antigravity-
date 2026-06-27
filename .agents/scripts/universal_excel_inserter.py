@@ -29,8 +29,30 @@ def insert_data(excel_path, data):
     study_design_map = {1: "1 = Cross-sectional", 2: "2 = Longitudinal/time-lagged", 3: "3 = Experimental", 4: "4 = Qualitative"}
     intl_context_map = {1: "1 = No (domestic only)", 2: "2 = Yes (expatriate, multinational, etc.)"}
     report_type_map = {1: "1 = Self", 2: "2 = Supervisor", 3: "3 = Others", 4: "4 = Objective"}
+    inclusion_map = {0: "0 = Exclude", 1: "1 = Include"}
 
     article_id = data.get("article_id", "BSMA9999")
+    inclusion_status = data.get("inclusion_status", 1) # Default to 1 if not provided
+    exclusion_reason = data.get("exclusion_reason", None)
+
+    # ----------------------------------------------------
+    # PATH A: EXCLUSION LOGIC
+    # ----------------------------------------------------
+    if inclusion_status == 0:
+        row = [None] * 50
+        row[0] = "KY"
+        row[1] = article_id
+        row[4] = inclusion_map.get(0, "0 = Exclude")
+        row[5] = exclusion_reason
+        
+        ws.append(row)
+        wb.save(excel_path)
+        print(f"Successfully excluded {article_id}. Reason logged in Excel.")
+        return
+
+    # ----------------------------------------------------
+    # PATH B: INCLUSION LOGIC
+    # ----------------------------------------------------
     sample_size = data.get("sample_size", None)
     pub_type = pub_type_map.get(data.get("publication_type"), data.get("publication_type"))
     study_design = study_design_map.get(data.get("study_design"), data.get("study_design"))
@@ -39,16 +61,19 @@ def insert_data(excel_path, data):
 
     bs_measure = data.get("bs_measure", {})
     correlations = data.get("correlations", [])
+    
+    if not correlations:
+        print(f"Warning: Included paper {article_id} has no correlations listed in the payload.")
 
     for index, corr in enumerate(correlations):
-        row = [None] * 50 # 50 columns
+        row = [None] * 50
         
         # Col 0-4: Identifiers
         row[0] = "KY"
         row[1] = article_id
         row[2] = f"{article_id}.1" # Sample ID
         row[3] = f"{row[2]}.{index + 1}" # Effect Size ID
-        row[4] = "1 = Include"
+        row[4] = inclusion_map.get(1, "1 = Include")
         
         # Categoricals
         row[11] = pub_type # Publication Type

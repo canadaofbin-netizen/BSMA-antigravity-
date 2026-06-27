@@ -16,10 +16,16 @@ When the user asks you to "run the batch processor" or "process the next N paper
 For each paper in the batch, you must:
 - Read the PDF text.
 - Follow the Three-Step Workflow in `03_automated_workflow.md` (Step 0 Triage, Step 1 Shadow Report, Step 2 Excel Injection).
-- **Step 0.5 (CRITICAL) - Variable Identification:** Before extracting measures, you MUST spawn a subagent to read the "Means, Standard Deviations, and Correlations" table. It must identify the Boundary Spanning construct, the sample size (N), and all paired variables, and extract their `r` values, Means, SDs, and Cronbach's Alphas.
+- **CRITICAL - TRIAGE CRITERIA:** You MUST independently evaluate if the paper should be EXCLUDED based on these rules: 
+  1. Not empirical (e.g. theoretical).
+  2. Team-level or Firm-level analysis instead of Individual-level.
+  3. The focal boundary spanner is a Leader/Manager instead of an Employee.
+  If the paper fails any criteria, set `"inclusion_status": 0` and `"exclusion_reason": "..."` in the JSON and immediately inject it into Excel. Skip all other steps.
+- **Step 0.5 (CRITICAL) - Variable Identification:** If INCLUDED, spawn a subagent to read the "Means, Standard Deviations, and Correlations" table. It must identify the Boundary Spanning construct, the sample size (N), and all paired variables, and extract their `r` values, Means, SDs, and Cronbach's Alphas.
 - **CRITICAL - ZERO-ORDER LOCK:** You MUST explicitly command the subagents to ONLY extract Pearson correlations (`r`). They are absolutely forbidden from pulling path coefficients (betas) from structural equation models (SEM) or regression tables.
 - **CRITICAL - MANDATORY CATEGORICALS:** You MUST explicitly tell subagents to extract Publication Type, Study Design, International Context, and Occupation Type.
 - **CRITICAL - EXACT MEASURE TEXT:** You MUST instruct subagents to extract the *exact descriptive sentence* for specific measures, not just the citation.
+- **CRITICAL - SHADOW REPORT:** Before calling the python inserter, you MUST use the `write_to_file` tool to save the extracted JSON data as a markdown file at `03_Shadow_Reports/[Article_ID]_Shadow_Report.md`. This is required for human auditing.
 - **CRITICAL - EXCEL INJECTION:** When injecting data into the Master Excel Sheet, you MUST invoke `python .agents/scripts/universal_excel_inserter.py --excel BSMA_Master_Coding_Sheet.xlsx --data <JSON_SCHEMA_STRING>`. Do not write custom inserters.
 
 ## 3. Fault Tolerance
