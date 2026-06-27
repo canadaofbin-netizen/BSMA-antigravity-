@@ -1,9 +1,9 @@
 {
     "article_id": "BSMA0001",
     "inclusion_status": 1,
-    "title": "Leader Boundary-Spanning Behavior and Employee Voice Behavior: The Job Demands-Resources Perspective",
+    "title": "Leader Boundary-Spanning Behavior and Employee Voice Behavior: The Job Demands–Resources Perspective",
     "publication_name": "Behav. Sci.",
-    "author": "Lee",
+    "author": "Lee et al.",
     "year": 2023,
     "samples": [
         {
@@ -12,7 +12,7 @@
             "publication_type": 1,
             "study_design": 1,
             "international_context": 1,
-            "occupation_type": "manufacturing, telecommunication, and service sectors",
+            "occupation_type": "Various industries",
             "bs_measures": [
                 {
                     "name": "Leader Boundary-Spanning Behavior",
@@ -23,7 +23,7 @@
                     "min": 1,
                     "max": 7,
                     "report_type": 2,
-                    "specific_measure": "Leader boundary-spanning behavior was measured with 6 items developed by Marrone et al. [36].",
+                    "specific_measure": "measured with 6 items developed by Marrone et al. [ 36].",
                     "notes": ""
                 }
             ],
@@ -38,7 +38,7 @@
                     "min": 1,
                     "max": 7,
                     "report_type": 2,
-                    "specific_measure": "To assess the perception of abusive supervision, we used a shortened five-item version of Tepper [27,79].",
+                    "specific_measure": "shortened ﬁve-item version of Tepper [ 27,79].",
                     "notes": ""
                 }
             ]
