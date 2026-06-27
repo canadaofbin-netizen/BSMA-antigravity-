@@ -28,10 +28,11 @@ For each paper in the batch, you must:
 - **CRITICAL - EXACT MEASURE TEXT:** You MUST instruct subagents to extract the *exact descriptive sentence* for specific measures, not just the citation.
 - **CRITICAL - EXCEL INJECTION:** When injecting data into the Master Excel Sheet, you MUST invoke `python .agents/scripts/universal_excel_inserter.py --excel BSMA_Master_Coding_Sheet.xlsx --data <JSON_SCHEMA_STRING>`. Do not write custom inserters.
 
-## 3. Fault Tolerance
+## 3. Fault Tolerance & Infinite Loop Prevention
+- **MAX RETRIES (Circuit Breaker):** Maintain a `Retry_Count` for each paper. If a subagent crashes, returns an error, or hallucinates data, you may retry extraction. However, if a paper fails 3 times, you MUST immediately mark its status as `FAILED (Aborted)` in `batch_queue.csv`. NEVER attempt to process the same paper more than 3 times to prevent infinite loops.
 - If you or a subagent encounters an edge case that violates rules, or a fundamentally unparseable correlation table (`[UNRECOGNIZED PARADIGM]`), **DO NOT STOP THE BATCH**.
 - Mark the paper as `FAILED` or `EXCLUDED` in `batch_queue.csv`.
-- Append a detailed error entry to `04_Archives_and_Backups/error_log.md`.
+- Append a detailed error entry to `03_Archives_and_Backups/error_log.md`.
 - Immediately proceed to the next paper in the loop.
 
 ## 4. State Persistence (Auto-Save)
