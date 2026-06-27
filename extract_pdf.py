@@ -2,8 +2,8 @@ import PyPDF2
 import sys
 import os
 
-pdf_path = r"g:\My Drive\UCL\BSMA\BSMA ANTIGRAVITY\01_Academic_Papers\[1] Perreault Mildred et al. (2023) Everything else is public relations - how rural journalists draw the boundary between journalism and public relations in rural communities.pdf"
-txt_path = r"g:\My Drive\UCL\BSMA\BSMA ANTIGRAVITY\03_Archives_and_Backups\pdf_texts\BSMA0001.txt"
+pdf_path = r"g:\My Drive\UCL\BSMA\BSMA ANTIGRAVITY\01_Academic_Papers\[7] Hrebiniak Lawrence G., Alutto Joseph A. (1973) A comparative organizational study of performance and size correlates in inpatient psychiatric departments.pdf"
+txt_path = r"g:\My Drive\UCL\BSMA\BSMA ANTIGRAVITY\03_Archives_and_Backups\pdf_texts\BSMA0007.txt"
 
 with open(pdf_path, 'rb') as f:
     reader = PyPDF2.PdfReader(f)
