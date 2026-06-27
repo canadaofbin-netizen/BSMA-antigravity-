@@ -13,8 +13,8 @@ When coding studies that use matched pairs (e.g., leader-employee dyads), standa
 - **1 = Self:** The anchor filled out the survey (even if they are rating a subordinate's behavior, like Voice Behavior).
 - **3 = Others:** Someone else filled out the survey (e.g., a subordinate rating the leader's boundary-spanning behavior, or a subordinate rating their *own* self-efficacy).
 
-### Step 3: Filtering Demographic Correlations
-- **Rule:** The manual's standard rule to "code ALL effect sizes including demographic variables" has a strict exception for dyadic data.
-- **Action:** You must **exclude** any demographic correlations (Gender, Age, Education) in the correlation table if those demographics belong to the non-focal sample (e.g., subordinate demographics when the leader is the anchor). These cross-entity demographics are not of interest.
+### Step 3: The Focal-Entity Filter (Strict Variable Exclusion)
+- **Rule:** We are interested in the boundary spanning of the focal employee and variables that pertain to that same focal employee. It does not matter *who* measured the variable (self, supervisor, or peer); what matters is *whether the variable is about the focal employee*.
+- **Action:** You MUST **exclude entirely** any variables from the correlation matrix that are fundamentally about another person (e.g., coworker age, subordinate demographics, or coworker-level outcomes). For example, if the focal employee is a Leader, skip correlations involving the Subordinate's performance or voice behavior. Code ONLY the correlations between the focal employee's boundary spanning and variables that describe that same focal employee.
 
 </details>
