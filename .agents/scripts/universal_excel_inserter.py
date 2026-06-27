@@ -21,6 +21,11 @@ def insert_data(excel_path, data):
     article_id = data.get("article_id", "BSMA9999")
     inclusion_status = data.get("inclusion_status", 1)
     exclusion_reason = data.get("exclusion_reason", None)
+    
+    title = data.get("title")
+    pub_name = data.get("publication_name")
+    author = data.get("author")
+    year = data.get("year")
 
     # Find the target row
     target_row_idx = None
@@ -34,7 +39,19 @@ def insert_data(excel_path, data):
         target_row_idx = ws.max_row + 1
 
     # Extract metadata from the existing row (if it exists) to copy into new rows
-    metadata = [ws.cell(row=target_row_idx, column=c).value for c in range(1, 11)] # Cols A to J
+    metadata = [ws.cell(row=target_row_idx, column=c).value for c in range(1, 12)] # Cols A to K
+    
+    # Overwrite extracted bibliometrics if provided by AI
+    if title: metadata[7] = title        # Col 8
+    if pub_name: metadata[8] = pub_name  # Col 9
+    if author: metadata[9] = author      # Col 10
+    if year: metadata[10] = year         # Col 11
+
+    # Overwrite target row directly for Exclusions or fallback
+    if title: ws.cell(row=target_row_idx, column=8).value = title
+    if pub_name: ws.cell(row=target_row_idx, column=9).value = pub_name
+    if author: ws.cell(row=target_row_idx, column=10).value = author
+    if year: ws.cell(row=target_row_idx, column=11).value = year
 
     # PATH A: EXCLUSION LOGIC
     if inclusion_status == 0:
@@ -79,7 +96,7 @@ def insert_data(excel_path, data):
                 row = [None] * 50
                 
                 # Copy metadata
-                for i in range(10):
+                for i in range(11):
                     if i < len(metadata):
                         row[i] = metadata[i]
                 
