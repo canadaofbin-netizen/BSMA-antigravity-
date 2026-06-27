@@ -55,6 +55,7 @@ def insert_data(excel_path, data):
 
     # PATH A: EXCLUSION LOGIC
     if inclusion_status == 0:
+        ws.cell(row=target_row_idx, column=2).value = article_id
         ws.cell(row=target_row_idx, column=5).value = inclusion_map.get(0, "0 = Exclude")
         ws.cell(row=target_row_idx, column=6).value = exclusion_reason
         wb.save(excel_path)
