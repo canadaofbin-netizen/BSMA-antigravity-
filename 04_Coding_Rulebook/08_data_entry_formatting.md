@@ -13,7 +13,7 @@ When executing Step 2 of the workflow (Writing to the `BSMA_Master_Coding_Sheet.
 > - **Col 2 (Article ID):** Must follow a strict chronological sequence based on the Excel sheet history (e.g., `BSMA0001` -> `BSMA0002` -> `BSMA0003`). Completely ignore the numbering in the PDF filename.
 > - **Col 3 (Sample ID):** Must append the sample number to the Article ID. Format: `[Article ID].[Sample Number]`. Example: `BSMA0002.1`.
 > - **Col 4 (Effect Size ID):** Must append a chronological extraction number to the Sample ID. Format: `[Sample ID].[Effect Number]`. Example: `BSMA0002.1.1`, `BSMA0002.1.2`, `BSMA0002.1.3`.
-> - **Col 5 (Inclusion-Exclusion Judgment):** Since we are actively extracting effect sizes, this must always be hardcoded as `1 = Include` for every extracted row.
+> - **Col 5 (Inclusion-Exclusion Judgment):** For papers being actively extracted, hardcode as `1 = Include`. For papers that fail Triage (non-empirical, non-individual-level), set to `0 = Exclude` and log the exclusion reason in Col 6.
 > - **Col 12 (Publication Type), Col 17 (Study Design), Col 21 (International Context) & Col 26 (Occupation Type):** Categorical variables MUST NOT be left blank. You must write out the full text label alongside the index number (e.g., `1 = Journal article`, `1 = No (domestic only)`). For **Col 26**, write a descriptive text of the occupation (e.g., `employees from IT companies` or `public sector managers`). Do not leave it blank.
 > - **Measure Descriptors (Min Score, Max Score, Report Type, Specific Measure):** These columns MUST NOT be left blank.
 >   - **Report Type Strict Classification:** `1 = Self`, `2 = Supervisor` (leaders, formal supervisors), `3 = Others` (coworkers, peers, external stakeholders). Do NOT use `3` as a catch-all.

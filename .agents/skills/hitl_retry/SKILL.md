@@ -17,3 +17,4 @@ The `hitl_retry` skill is triggered when the user wants to review the backlog of
 - Rerun the extraction pipeline (Steps 1 and 2 of the Two-Step Workflow) for those specific papers using the newly provided context.
 - If successful, remove them from `error_log.md` and update their status to `SUCCESS` in `batch_queue.csv`.
 - If a rule change is permanent, remember to update the corresponding Markdown rulebooks (e.g., `04_general_exceptions.md` or `01_dyadic_data_rules.md`).
+- **CRITICAL:** If the professor's ruling establishes a new inclusion/exclusion precedent, you MUST also append it to `.agents/skills/batch_processor/triage_casebook.md` so future agents can learn from it.

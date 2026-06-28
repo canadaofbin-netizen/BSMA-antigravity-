@@ -1,16 +1,14 @@
 <details>
 <summary><h2>Exclusion Rule: Non-Individual Anchors</h2></summary>
 
-According to the master Inclusion-Exclusion criteria, the sample must consist of **employees or working adults**. Therefore, any study where the boundary-spanning entity (the "Anchor") is an organization, team, or firm rather than an individual employee (e.g., a "Technology Transfer Centre" spanning boundaries between university and industry) MUST be excluded from the meta-analysis.
+According to the master Inclusion-Exclusion criteria, the boundary spanning behavior must be measured at the **Individual-level**. ONLY Individual-level passes. Any study where the boundary-spanning entity is NOT an individual person (e.g., a team, unit, department, organization, or firm) MUST be excluded.
 
 > [!CAUTION]
-> **Firm & Team Exclusion Rule**  
-> Mixing organizational-level boundary spanning with individual-level boundary spanning violates the level-of-analysis boundaries of this project. The meta-analysis focuses EXCLUSIVELY on individual-level boundary spanning.
+> **Individual-Level ONLY Rule**  
+> Mixing non-individual-level boundary spanning with individual-level boundary spanning violates the level-of-analysis boundaries of this project. The meta-analysis focuses EXCLUSIVELY on individual-level boundary spanning.
 > 
-> **Action:** If you identify that the focal sample is a Firm, Team, or Organization, the paper MUST be excluded. You must **ABORT extraction immediately**. Do not waste resources extracting the correlation matrix. Instead, create a 1-row Shadow Report with the basic metadata (Article ID, Year, etc.) and mark:
-> - **Col 5 (Inclusion-Exclusion Judgment):** `0 = Exclude`
-> - **Col 6 (Reason for Exclusion):** `2 = Non-employee (Team/Org) samples`
+> **NOTE:** The focal boundary spanner CAN be a Leader/Manager. Whoever performs the boundary spanning IS the focal employee regardless of job title. (See Casebook Precedent #001.)
 > 
-> Leave all measurement and correlation columns entirely blank.
+> **Action:** If the boundary spanning construct is measured at a non-individual level (Team, Unit, Department, Organization, Firm, etc.), the paper MUST be excluded. You must **ABORT extraction immediately**. Set `inclusion_status` to 0 and `exclusion_reason` in the JSON, then inject into Excel via `universal_excel_inserter.py`.
 
 </details>

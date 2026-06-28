@@ -7,6 +7,8 @@ description: Automates the extraction of Measure Descriptors from PDF papers usi
 
 When triggered, you must execute the following automated workflow to extract measurement details from an academic paper without suffering from context limits.
 
+> **PREREQUISITE:** This skill assumes the paper has ALREADY passed Triage (confirmed as Individual-level, empirical, with a correlation matrix). Do NOT invoke this skill on papers that have not been triaged.
+
 ## 1. Subagent Invocation
 - Use the `invoke_subagent` tool to spawn a specialized `research` subagent.
 - **Prompt for Subagent:** "Read the provided PDF paper located at [Path].
