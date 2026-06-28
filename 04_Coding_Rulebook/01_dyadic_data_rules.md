@@ -4,8 +4,8 @@
 When coding studies that use matched pairs (e.g., leader-employee dyads), standard coding rules must be adjusted to maintain the correct perspective. Always follow the **Anchor Rule** below.
 
 ### Step 1: Identify the Anchor (Focal Sample)
-- **Rule:** The "Anchor" is always the person performing the boundary-spanning behavior being studied. 
-- **Example:** In studies of *Leader* Boundary-Spanning Behavior, the **Leader** is the anchor.
+- **Rule:** The "Anchor" is always the person performing the boundary-spanning behavior being studied, regardless of their job title or position (staff, manager, team leader, etc.).
+- **Example:** In studies of *Leader* Boundary-Spanning Behavior, the **Leader** is the anchor. In studies of *Employee* Boundary-Spanning Behavior, the **Employee** is the anchor.
 - **Action:** Code the *Sample Size (N)* based on the number of dyads (e.g., 383 pairs = N of 383). Use the demographic characteristics (Age, % Female, Tenure) of the **Anchor only**. 
 
 ### Step 2: The "Report Type" Perspective Flip
