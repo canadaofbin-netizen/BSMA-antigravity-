@@ -75,12 +75,24 @@ def insert_data(excel_path, data):
 
     # PATH A: EXCLUSION LOGIC
     if inclusion_status == 0:
+        exclusion_code_map = {
+            1: "1 = No effect size of interest",
+            2: "2 = Non-employee samples",
+            3: "3 = Non-boundary spanning measures",
+            4: "4 = Non-primary study",
+            5: "5 = Multiple reasons (specify in Notes)",
+            6: "6 = Duplicate",
+            7: "7 = Non-English language",
+            99: "99 = Other (specify in Notes)"
+        }
+        exclusion_code = data.get("exclusion_code", 99)
         ws.cell(row=target_row_idx, column=1).value = "KY"
         ws.cell(row=target_row_idx, column=2).value = article_id
         ws.cell(row=target_row_idx, column=5).value = inclusion_map.get(0, "0 = Exclude")
-        ws.cell(row=target_row_idx, column=6).value = exclusion_reason
+        ws.cell(row=target_row_idx, column=6).value = exclusion_code_map.get(exclusion_code, "99 = Other (specify in Notes)")
+        ws.cell(row=target_row_idx, column=16).value = exclusion_reason  # Detailed reason in Notes column
         wb.save(excel_path)
-        print(f"Successfully excluded {article_id}. Reason logged in Excel.")
+        print(f"Successfully excluded {article_id}. Code={exclusion_code}, Reason in Notes col 16.")
         return
 
     # PATH B: INCLUSION LOGIC (M:N schema)
