@@ -20,7 +20,7 @@ For each paper in the batch, you must:
 - **CRITICAL - PRE-TRIAGE: READ CASEBOOK FIRST.** Before making any inclusion/exclusion decision, you MUST read `.agents/skills/batch_processor/triage_casebook.md` in full. Apply the professor's established rulings (precedents) to your paper. If the paper resembles a past case, follow that precedent exactly.
 - **CRITICAL - TRIAGE CRITERIA:** You MUST independently evaluate if the paper should be EXCLUDED based on these rules: 
   1. Not empirical (e.g. theoretical).
-  2. Team-level or Firm-level analysis instead of Individual-level.
+  2. The boundary spanning behavior is NOT measured at the **Individual-level**. ONLY Individual-level passes. Any non-individual unit of analysis (Team, Unit, Department, Organization, Firm, etc.) → EXCLUDE.
   *(NOTE: The focal boundary spanner CAN be a Leader/Manager. Whoever performs the boundary spanning is the focal employee. See Casebook Precedent #001.)*
   If the paper fails any criteria, set `"inclusion_status": 0` and `"exclusion_reason": "..."` in the JSON and immediately inject it into Excel. Skip all other steps.
 - **Step 0.5 (CRITICAL) - Variable Identification:** If INCLUDED, spawn a subagent to read the "Means, Standard Deviations, and Correlations" table. It must identify the Boundary Spanning construct, the sample size (N), and all paired variables, and extract their `r` values, Means, SDs, and Cronbach's Alphas.

@@ -26,10 +26,14 @@ When the orchestrator confirms a new inclusion/exclusion decision, it will be ap
 
 ## HOW TO USE THIS CASEBOOK
 
-When you encounter a new paper during Triage, ask yourself:
-1. Does this paper treat BS as a **firm-level capability**? → See Precedent #002 → EXCLUDE
-2. Is the focal BS actor a **leader/manager**? → See Precedent #001 → DO NOT exclude on this basis alone. Check if individual-level correlations exist.
-3. Is the study **non-empirical** (theoretical, review, conceptual)? → EXCLUDE
-4. Is the analysis **purely team or firm-level** with no individual correlations reported? → EXCLUDE
+When you encounter a new paper during Triage, ask yourself ONE question first:
+> **"Is the boundary spanning behavior in this paper measured at the Individual-level?"**
+- **YES** (one person does BS) → Proceed to inclusion checks below.
+- **NO** (BS is a team/unit/department/organization/firm-level construct) → **EXCLUDE immediately.** (See Precedent #002.)
+
+If Individual-level, continue:
+1. Is the focal BS actor a **leader/manager**? → That is FINE. DO NOT exclude on this basis alone. The leader IS the focal employee. (See Precedent #001.)
+2. Is the study **non-empirical** (theoretical, review, conceptual)? → EXCLUDE.
+3. Does the study report a **correlation matrix** with Pearson r values? → If not, EXCLUDE.
 
 New precedents will be added below as the professor provides rulings.

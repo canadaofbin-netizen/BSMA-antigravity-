@@ -10,7 +10,7 @@ To ensure the highest level of accuracy and speed, all AI coding assistants must
 - **Objective:** Evaluate if the paper should be included or excluded, and extract empirical variables.
 - **Triage Criteria (Exclusion):**
   1. Not empirical (e.g. theoretical, review, conceptual).
-  2. Team-level or Firm-level analysis instead of Individual-level (e.g., BS treated as a firm dynamic capability → EXCLUDE. See Casebook Precedent #002).
+  2. The boundary spanning behavior is NOT measured at the **Individual-level**. ONLY Individual-level passes. Any non-individual unit of analysis (Team, Unit, Department, Organization, Firm, etc.) → EXCLUDE. (See Casebook Precedent #002.)
   - NOTE: The focal boundary spanner CAN be a Leader/Manager. Whoever performs the boundary spanning IS the focal employee regardless of job title. (See Casebook Precedent #001).
   - If EXCLUDED: Immediately halt numerical extraction. Set `inclusion_status` to 0 and log the exclusion reason in the JSON schema.
 - **Bibliometrics Extraction:** Extract `title`, `publication_name` (journal), `author` (first author et al.), and `year` from the paper header. These must be included in the JSON payload.
