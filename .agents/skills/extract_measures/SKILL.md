@@ -25,6 +25,7 @@ When triggered, you must execute the following automated workflow to extract mea
 - Once the JSON is received, you MUST NOT write a custom python script.
 - Instead, format the JSON to match the Master Coding Sheet column indices and invoke `python .agents/scripts/universal_excel_inserter.py --excel BSMA_Master_Coding_Sheet.xlsx --data <JSON_STRING>`.
 - The universal inserter will automatically handle Coder Initials, Sample ID, Effect Size ID auto-generation, and exact string mappings for dropdown columns.
+- **CRITICAL - CLEANUP RULE:** If you create any temporary `.json` or `.py` files in the workspace to bypass terminal limits while injecting, you MUST permanently delete them immediately after the injection succeeds. Do not leave scratch files behind.
 
 ## 4. Verification and Backup
 - Read back the modified Excel rows using Python to ensure no numeric hallucination occurred.
