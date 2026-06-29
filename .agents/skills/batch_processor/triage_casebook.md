@@ -20,7 +20,7 @@ When the orchestrator confirms a new inclusion/exclusion decision, it will be ap
 - **Agent Initial Signal:** Boundary-spanning described as a firm-level dynamic capability (not individual/team-level behavior).
 - **Professor's Ruling:** ✅ CORRECT — Exclude.
 - **Correct Reasoning:** Our unit of analysis is the INDIVIDUAL (or team of individuals). When a study treats "Boundary Spanning" as an organizational/firm-level dynamic capability construct, it does not belong in this meta-analysis. Key indicators: the study's DV is "firm performance", BS is measured as a firm-level resource, and there is no individual focal employee.
-- **Final Status:** ❌ EXCLUDED
+- **Final Status:** ❌ EXCLUDED (Code 99: Other - Firm-level)
 
 ---
 

@@ -22,7 +22,7 @@ For each paper in the batch, you must:
   1. Not empirical (e.g. theoretical).
   2. The boundary spanning behavior is NOT measured at the **Individual-level**. ONLY Individual-level passes. Any non-individual unit of analysis (Team, Unit, Department, Organization, Firm, etc.) → EXCLUDE.
   *(NOTE: The focal boundary spanner CAN be a Leader/Manager. Whoever performs the boundary spanning is the focal employee. See Casebook Precedent #001.)*
-  If the paper fails any criteria, set `"inclusion_status": 0` and `"exclusion_reason": "..."` in the JSON and immediately inject it into Excel. Skip all other steps.
+  If the paper fails any criteria, set `"inclusion_status": 0`, `"exclusion_code": 99` (or appropriate code), and `"exclusion_reason": "..."` in the JSON and immediately inject it into Excel. Skip all other steps.
 - **Step 0.5 (CRITICAL) - Variable Identification:** If INCLUDED, spawn a subagent to read the "Means, Standard Deviations, and Correlations" table. It must identify the Boundary Spanning construct, the sample size (N), and all paired variables, and extract their `r` values, Means, SDs, and Cronbach's Alphas.
 - **CRITICAL - ZERO-ORDER LOCK:** You MUST explicitly command the subagents to ONLY extract Pearson correlations (`r`). They are absolutely forbidden from pulling path coefficients (betas) from structural equation models (SEM) or regression tables.
 - **CRITICAL - MANDATORY CATEGORICALS:** You MUST explicitly tell subagents to extract Publication Type, Study Design, International Context, and Occupation Type.
