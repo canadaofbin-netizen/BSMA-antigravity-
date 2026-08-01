@@ -8,9 +8,8 @@
 
 | Version | 파일명 | Include | Exclude | 규칙 특성 |
 |---|---|---|---|---|
-| **V1** (=V7) | `BSMA_AI_Run_V1_Strict.xlsx` | 106 | 595 | Original Strict |
-| **V2** (=V8) | `BSMA_AI_Run_V2_AggRecovery.xlsx` | 115 | 586 | Strict + Aggregation Recovery |
-| **V3** (=V9) | `BSMA_AI_Run_V3_Broad.xlsx` | TBD | TBD | Broad (Researcher Decision) |
+| **V1** (=V8) | `BSMA_AI_Run_V1_AggRecovery.xlsx` | 115 | 586 | Strict + Aggregation Recovery |
+| **V2** (=V9) | `BSMA_AI_Run_V2_Broad.xlsx` | TBD | TBD | Broad (Researcher Decision) |
 
 ---
 
