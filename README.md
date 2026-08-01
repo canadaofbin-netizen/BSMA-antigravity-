@@ -54,22 +54,29 @@ BSMA ANTIGRAVITY/
 
 ## Branch Strategy
 
-| Branch | 규칙 | 용도 |
+| Branch | 규칙 | 역할 |
 |---|---|---|
-| `main` | V1 AggRecovery | 기준 브랜치 |
-| `strict-include-exclude-rules` | V1 AggRecovery | main 스냅샷 (잠금) |
-| `develop` | V2 Broad | 작업용 |
-| `loose-include-exclude-rules` | V2 Broad | V2 스냅샷 (잠금) |
-| `feature/strict-pipeline` | V2 Broad | 기능 개발 |
-| `experiment/v9-comparison` | V2 Broad | 실험용 |
+| `main` | 🔒 V1 Strict | **기준 브랜치.** 현재 확정된 V1 규칙 + Master 데이터. 모든 작업의 출발점 |
+| `strict-include-exclude-rules` | 🔒 V1 Strict | **main 스냅샷 (잠금).** V1 Strict 규칙의 불변 보존용. 수정 금지 |
+| `develop` | 🔓 V2 Broad | **작업용 브랜치.** V2 Broad 규칙으로 실험/개발할 때 사용 |
+| `loose-include-exclude-rules` | 🔓 V2 Broad | **V2 스냅샷 (잠금).** V2 Broad 규칙의 불변 보존용. 수정 금지 |
+| `feature/strict-pipeline` | 🔓 V2 Broad | **기능 개발용.** 파이프라인 기능 추가/수정 시 사용 |
+| `experiment/v9-comparison` | 🔓 V2 Broad | **실험용.** V1/V2 비교 분석, A/B 테스트 등 |
+
+```
+main (V1 Strict) ----> strict-include-exclude-rules (잠금 사본)
+  └----> develop (V2 Broad) ----> loose-include-exclude-rules (잠금 사본)
+                             ----> feature/strict-pipeline (기능 개발)
+                             ----> experiment/v9-comparison (실험)
+```
 
 **main과 나머지 브랜치의 차이는 Include/Exclude 규칙 파일 2개뿐입니다:**
 - `screening_rules_core.md`
 - `screening_edge_cases.md`
 
 ### Frozen Tags
-- `v7-strict-rules-frozen`: V7 Strict 규칙 불변 스냅샷
-- `v9-loose-rules-frozen`: V9 Broad 규칙 불변 스냅샷
+- `v1-strict-rules-frozen`: V1 Strict 규칙 불변 스냅샷
+- `v2-broad-rules-frozen`: V2 Broad 규칙 불변 스냅샷
 
 ---
 
