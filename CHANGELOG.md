@@ -8,8 +8,8 @@
 
 | Version | File Name | Include | Exclude | Rule Characteristics |
 |---|---|---|---|---|
-| **V1** (=V8) | `BSMA_AI_Run_V1_AggRecovery.xlsx` | 115 | 586 | Strict + Aggregation Recovery |
-| **V2** (=V9) | `BSMA_AI_Run_V2_Broad.xlsx` | TBD | TBD | Broad (Researcher Decision) |
+| **V1** | `BSMA_AI_Run_V1_AggRecovery.xlsx` | 115 | 586 | Strict + Aggregation Recovery |
+| **V2** | `BSMA_AI_Run_V2_Broad.xlsx` | 179 | 522 | Broad (Researcher Decision) |
 
 ---
 
@@ -47,7 +47,7 @@
 ## V2 -> V3: Researcher Decision 2026-07-28 (Broad Rules)
 
 **Git Commit:** `8086302`  
-**Result Change:** Include 115 -> TBD (Significant additions expected)
+**Result Change:** Include 115 -> 179 (+64 papers)
 
 ### Changed Rules (3 Major Changes)
 
