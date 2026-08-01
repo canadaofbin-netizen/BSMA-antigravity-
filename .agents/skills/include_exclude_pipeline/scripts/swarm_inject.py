@@ -1,5 +1,5 @@
 """
-swarm_inject_v3.py — Security Plan v2 적용
+swarm_inject_v3.py — Security Plan v2 Applied
 ==========================================
 Layer 2: 오염 검사 (Contamination Detection)
 Layer 2: 절단 감지 (Truncation Detection)
@@ -28,7 +28,7 @@ OUTPUTS_DIR = os.path.join(CWD, "scratch", "outputs")
 QUARANTINE_DIR = os.path.join(CWD, "scratch", "quarantine")
 
 # ============================================================
-# Layer 2-1: Contamination Detection (오염 패턴 검사)
+# Layer 2-1: Contamination Detection
 # ============================================================
 CONTAMINATION_PATTERNS = [
     r'</SYSTEM_MESSAGE>',
@@ -54,7 +54,7 @@ def check_contamination(text, bsma_id):
     return found
 
 # ============================================================
-# Layer 2-2: Truncation Detection (절단 감지)
+# Layer 2-2: Truncation Detection
 # ============================================================
 def detect_truncation(raw_text, bsma_id):
     """Detect if the JSON output was truncated by token limits."""
@@ -84,7 +84,7 @@ def detect_truncation(raw_text, bsma_id):
     return issues
 
 # ============================================================
-# Layer 4: JSON Auto-Repair (절단된 JSON 복원)
+# Layer 4: JSON Auto-Repair
 # ============================================================
 def attempt_json_repair(raw_text, bsma_id):
     """Attempt to repair truncated JSON. Returns parsed dict or None."""
@@ -120,7 +120,7 @@ def attempt_json_repair(raw_text, bsma_id):
         return None
 
 # ============================================================
-# Layer 2-3: Schema Validation (스키마 검증)
+# Layer 2-3: Schema Validation
 # ============================================================
 REQUIRED_SCHEMA = {
     "BSMA_ID": str,
@@ -161,7 +161,7 @@ def validate_schema(data, bsma_id):
     return True
 
 # ============================================================
-# Layer 3: Quarantine (검역 격리)
+# Layer 3: Quarantine
 # ============================================================
 def move_to_quarantine(json_path, reason, bsma_id):
     """Move contaminated/broken file to quarantine directory."""

@@ -1,12 +1,12 @@
 # BSMA: Boundary Spanning Meta-Analysis
 
-> Individual-level Boundary Spanning Behavior(BSB)의 선행변인과 결과변인에 대한 체계적 메타분석 프로젝트
+> Systematic meta-analysis project on the antecedents and outcomes of Individual-level Boundary Spanning Behavior (BSB)
 
 ---
 
 ## Project Overview
 
-본 프로젝트는 조직 내/간 경계를 넘나드는 개인 수준의 Boundary Spanning Behavior(BSB)에 대한 포괄적 메타분석을 수행합니다. 701편의 학술 논문을 대상으로 AI-assisted screening pipeline과 수동 코딩을 병행하여 Include/Exclude 판정 및 효과크기 추출을 진행합니다.
+This project conducts a comprehensive meta-analysis of individual-level Boundary Spanning Behavior (BSB) across intra- and inter-organizational boundaries. Targeting 701 academic papers, it utilizes an AI-assisted screening pipeline alongside manual coding to perform Include/Exclude judgments and extract effect sizes.
 
 ---
 
@@ -14,113 +14,113 @@
 
 ```
 BSMA ANTIGRAVITY/
-├── 01_Academic_Papers/              701편 PDF (엄격한 네이밍: [ID] Author (Year) - Title.pdf)
-├── 02_Reference_Manuals/            코딩 매뉴얼 및 참고 문서
-├── 03_Validation_Results/           AI 검증 결과 엑셀
+├── 01_Academic_Papers/              701 PDFs (Strict naming: [ID] Author (Year) - Title.pdf)
+├── 02_Reference_Manuals/            Coding manuals and reference documents
+├── 03_Validation_Results/           AI validation result Excel files
 │   ├── BSMA_AI_Run_V1_AggRecovery.xlsx   V1: 115 Include / 586 Exclude
 │   └── BSMA_AI_Run_V2_Broad.xlsx         V2: Broad rules (TBD)
-├── 04_Reports/                      분석 리포트 (Match Rate, Screening Report)
-├── 99_Archives_and_Backups/         백업 및 레거시 파일
-│   ├── NEVER_CHANGE_IN_ANY_CASES/   불변 마스터 백업 (절대 수정 금지)
-│   ├── Database_Milestones/         DB 스냅샷
-│   ├── Prompt_Freezes/              파이프라인 규칙 스냅샷
-│   ├── LLM_Audit_Trails/            AI 감사 로그
-│   ├── Cleanup_Logs/                정리 작업 로그
-│   └── Legacy/                      레거시 코드 및 규칙
-├── .agents/                         AI 에이전트 설정 및 스킬
-│   ├── AGENTS.md                    글로벌 규칙 (SSOT)
-│   └── skills/                      모듈별 스킬 정의
-├── scratch/                         임시 작업 파일 (.gitignore)
-│   ├── extracted_texts/             PDF 추출 텍스트 (재사용)
-│   ├── ocr_images/                  OCR 페이지 이미지
-│   └── _disposable/                 일회성 스크립트/중간결과
-├── BSMA_Master_Coding_Sheet.xlsx    마스터 코딩 시트 (50열, V1 기준)
-├── CHANGELOG.md                     규칙 변경 이력
-└── memory.md                        AI 작업 메모리
+├── 04_Reports/                      Analysis reports (Match Rate, Screening Report)
+├── 99_Archives_and_Backups/         Backups and legacy files
+│   ├── NEVER_CHANGE_IN_ANY_CASES/   Immutable master backup (STRICTLY NO MODIFICATIONS)
+│   ├── Database_Milestones/         DB snapshots
+│   ├── Prompt_Freezes/              Pipeline rule snapshots
+│   ├── LLM_Audit_Trails/            AI audit logs
+│   ├── Cleanup_Logs/                Cleanup operation logs
+│   └── Legacy/                      Legacy code and rules
+├── .agents/                         AI agent settings and skills
+│   ├── AGENTS.md                    Global rules (SSOT)
+│   └── skills/                      Module-specific skill definitions
+├── scratch/                         Temporary workspace (.gitignore)
+│   ├── extracted_texts/             PDF extracted texts (reusable)
+│   ├── ocr_images/                  OCR page images
+│   └── _disposable/                 Disposable scripts/intermediate results
+├── BSMA_Master_Coding_Sheet.xlsx    Master coding sheet (50 columns, based on V1)
+├── CHANGELOG.md                     Rule change history
+└── memory.md                        AI working memory and precedents
 ```
 
 ---
 
 ## Validation Versions
 
-| Version | 파일명 | Include | Exclude | 규칙 특성 |
+| Version | File Name | Include | Exclude | Rule Characteristics |
 |---|---|---|---|---|
 | **V1** (=V8) | `BSMA_AI_Run_V1_AggRecovery.xlsx` | 115 | 586 | Strict + Aggregation Recovery |
 | **V2** (=V9) | `BSMA_AI_Run_V2_Broad.xlsx` | TBD | TBD | Broad (Researcher Decision 2026-07-28) |
 
-규칙 변경 상세 내역은 [CHANGELOG.md](CHANGELOG.md)를 참조하세요.
+For detailed rule changes, please refer to [CHANGELOG.md](CHANGELOG.md).
 
 ---
 
 ## Branch Strategy
 
-| Branch | 규칙 | 역할 |
+| Branch | Rules | Role |
 |---|---|---|
-| `main` | 🔒 V1 Strict | **기준 브랜치.** 현재 확정된 V1 규칙 + Master 데이터. 모든 작업의 출발점 |
-| `strict-include-exclude-rules` | 🔒 V1 Strict | **main 스냅샷 (잠금).** V1 Strict 규칙의 불변 보존용. 수정 금지 |
-| `develop` | 🔓 V2 Broad | **작업용 브랜치.** V2 Broad 규칙으로 실험/개발할 때 사용 |
-| `loose-include-exclude-rules` | 🔓 V2 Broad | **V2 스냅샷 (잠금).** V2 Broad 규칙의 불변 보존용. 수정 금지 |
-| `feature/strict-pipeline` | 🔓 V2 Broad | **기능 개발용.** 파이프라인 기능 추가/수정 시 사용 |
-| `experiment/v9-comparison` | 🔓 V2 Broad | **실험용.** V1/V2 비교 분석, A/B 테스트 등 |
+| `main` | 🔒 V1 Strict | **Base branch.** Currently finalized V1 rules + Master data. Starting point for all work |
+| `strict-include-exclude-rules` | 🔒 V1 Strict | **main snapshot (locked).** For immutable preservation of V1 Strict rules. Do not modify |
+| `develop` | 🔓 V2 Broad | **Working branch.** Used for experiments/development with V2 Broad rules |
+| `loose-include-exclude-rules` | 🔓 V2 Broad | **V2 snapshot (locked).** For immutable preservation of V2 Broad rules. Do not modify |
+| `feature/strict-pipeline` | 🔓 V2 Broad | **Feature development.** Used for adding/modifying pipeline features |
+| `experiment/v9-comparison` | 🔓 V2 Broad | **Experimental.** V1/V2 comparative analysis, A/B testing, etc. |
 
 ```
-main (V1 Strict) ----> strict-include-exclude-rules (잠금 사본)
-  └----> develop (V2 Broad) ----> loose-include-exclude-rules (잠금 사본)
-                             ----> feature/strict-pipeline (기능 개발)
-                             ----> experiment/v9-comparison (실험)
+main (V1 Strict) ----> strict-include-exclude-rules (Locked copy)
+  └----> develop (V2 Broad) ----> loose-include-exclude-rules (Locked copy)
+                             ----> feature/strict-pipeline (Feature dev)
+                             ----> experiment/v9-comparison (Experiment)
 ```
 
-**main과 나머지 브랜치의 차이는 Include/Exclude 규칙 파일 2개뿐입니다:**
+**The only difference between `main` and the other branches is 2 Include/Exclude rule files:**
 - `screening_rules_core.md`
 - `screening_edge_cases.md`
 
 ### Frozen Tags
-- `v1-strict-rules-frozen`: V1 Strict 규칙 불변 스냅샷
-- `v2-broad-rules-frozen`: V2 Broad 규칙 불변 스냅샷
+- `v1-strict-rules-frozen`: V1 Strict rule immutable snapshot
+- `v2-broad-rules-frozen`: V2 Broad rule immutable snapshot
 
 ---
 
 ## AI Pipeline
 
 ### Include/Exclude Screening
-AI 기반 자동 스크리닝 파이프라인으로 701편의 논문을 병렬 처리합니다.
+Processes 701 papers in parallel using the AI-based automated screening pipeline.
 
-**사용법:**
-- `/includeexclude` - 자동 스크리닝 파이프라인 실행
-- `/workspace_lint` - 워크스페이스 위생 점검
-- `/ask [질문]` - 읽기 전용 Q&A (파일 수정 없음)
+**Usage:**
+- `/includeexclude` - Execute automated screening pipeline
+- `/workspace_lint` - Workspace hygiene check
+- `/ask [question]` - Read-only Q&A (No file modifications)
 
 ### Core Rules
-1. **Zero Guesswork Policy**: 숫자 결측 = `999`, 텍스트 결측 = `"Not Reported"`
-2. **Verbatim Quote**: 모든 판정에 원문 인용 필수 (Col 16)
-3. **Immutable Vault**: `NEVER_CHANGE_IN_ANY_CASES/` 절대 수정 금지
-4. **SSOT**: `AGENTS.md`가 유일한 규칙 원천
+1. **Zero Guesswork Policy**: Numeric missing = `999`, Text missing = `"Not Reported"`
+2. **Verbatim Quote**: Verbatim quotes are mandatory for all judgments (Col 16)
+3. **Immutable Vault**: `NEVER_CHANGE_IN_ANY_CASES/` strictly prohibits modifications
+4. **SSOT**: `AGENTS.md` is the only source of truth for rules
 
 ---
 
 ## Key Files
 
-| 파일 | 용도 |
+| File | Purpose |
 |---|---|
-| `BSMA_Master_Coding_Sheet.xlsx` | 마스터 코딩 시트 (50열, V1 기준) |
-| `.agents/AGENTS.md` | AI 에이전트 글로벌 규칙 |
-| `CHANGELOG.md` | V1/V2 규칙 변경 이력 |
-| `memory.md` | AI 작업 메모리 및 판례 기록 |
+| `BSMA_Master_Coding_Sheet.xlsx` | Master coding sheet (50 columns, based on V1) |
+| `.agents/AGENTS.md` | AI agent global rules |
+| `CHANGELOG.md` | V1/V2 rule change history |
+| `memory.md` | AI working memory and precedent records |
 
 ---
 
 ## Quick Start
 
 ```bash
-# 현재 브랜치 확인
+# Check current branch
 git branch --list
 
-# V1 vs V2 규칙 차이 확인
+# Check rule differences between V1 vs V2
 git diff main develop -- .agents/skills/include_exclude_pipeline/references/
 
-# 스크리닝 파이프라인 실행 (Antigravity IDE에서)
+# Execute screening pipeline (in Antigravity IDE)
 /includeexclude
 
-# 워크스페이스 점검
+# Workspace check
 /workspace_lint
 ```
