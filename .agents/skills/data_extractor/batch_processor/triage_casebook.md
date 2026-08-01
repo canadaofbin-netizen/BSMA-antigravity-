@@ -1,4 +1,4 @@
-# BSMA Triage Casebook (판례집)
+# BSMA Triage Casebook (Precedents)
 
 This file is a **mandatory reference** for all extraction agents. Before performing Triage on any paper, you MUST read this entire file and apply these precedents. If a new paper resembles a past case, follow the established ruling.
 

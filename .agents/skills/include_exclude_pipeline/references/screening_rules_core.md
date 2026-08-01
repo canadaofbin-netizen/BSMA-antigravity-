@@ -17,7 +17,7 @@ DECISION SEQUENCE (check in this order):
 - If a paper lacks a formal correlation matrix but reports the $R^2$ value for a *simple* linear regression (one predictor, zero control variables), you MUST extract the zero-order correlation using the formula $r = \sqrt{R^2}$. Do not erroneously exclude the paper for lacking a matrix if this data is present.
 - ⚠️ WARNING (SEM-only Data Warning): If a paper relies entirely on SEM path coefficients and does NOT provide a zero-order correlation matrix (even latent), it must be excluded for lacking extractable effect sizes. Do NOT confuse partial rectangular cross-correlation tables with full square correlation matrices.
 
-### TIER 1: Override Gates (반드시 먼저 확인 — CHECK FIRST)
+### TIER 1: Override Gates (CHECK FIRST)
 
 **Screening Rule 1: Leader BSB & Cross-Entity Inclusion (OVERRIDE PRIORITY)**
 The concept of Boundary Spanning Behavior is officially expanded to include **Boundary Spanning Leadership (BSL)**. If a study measures the boundary spanning behavior of a leader/manager as rated by their subordinates (cross-entity dyadic data), it MUST BE INCLUDED. Do not exclude a paper simply because the respondent is rating their supervisor's behavior rather than their own. **MANDATORY SEQUENCING:** Before applying ANY exclusion rule (Code 1, Code 3, Screening Rule 6, etc.), the screening agent MUST first check whether Screening Rule 1 or Screening Rule 2 applies. If the paper qualifies under Screening Rule 1 or 2, it is INCLUDED and no further exclusion logic may override this verdict. **CRITICAL OVERRIDE:** This rule takes absolute precedence over any "Cross-Entity Trap" or Code 1 exclusion logic. Leader BSB IS BSB — the construct is valid regardless of who the rater is. Code 1 applies ONLY when the construct itself is not BSB (e.g., Work-Family boundary management, Adaptive Selling). **Leader BSB Trap Warning:** Do not be fooled by the label "Boundary-spanning leadership". If the items measure internal demographic diversity management (e.g., bridging age gaps within a single branch using Blau's index), it is inclusive leadership, not structural BSB (Exclude under Code 1 & 3). **N=Leaders=N=Teams Exception:** When exactly one leader exists per team, the effective N for BSB is N_leaders (individual-level), NOT N_teams (team-level). Do not apply Code 3 to such designs.
@@ -32,7 +32,7 @@ Never blindly execute bulk inclusion or exclusion lists without independent meth
    - **Mandatory Sample Verification:** You must explicitly open and check the abstract/methodology to verify whether the study collected quantitative survey data from individual organizational employees (e.g., $N=225$ sales representatives, frontline staff, bank managers).
    - **Protect Pristine Empirical Studies:** If a study reports individual employee boundary spanning behavior and statistical effect sizes ($r$), it MUST BE SAVED AND INCLUDED (`1 = Include`), overriding any surface keyword heuristics.
 
-### TIER 2: Exclusion Filters (Tier 1을 통과한 경우에만 적용)
+### TIER 2: Exclusion Filters (Applied only if passed Tier 1)
 
 **Screening Rule 4: Construct Homonymy & Level-of-Analysis Guardrail**
 Never rely on keyword presence ("Face Validity") when screening for Boundary Spanning Behavior (BSB). The presence of the word "boundary-spanning" does not guarantee inclusion. BSB must be an interpersonal behavior performed by an individual employee (e.g., frontline worker, salesperson, leader). Due to construct homonymy across disciplines, agents must explicitly verify the **Unit of Analysis ($N$)** and **Entity Type**:

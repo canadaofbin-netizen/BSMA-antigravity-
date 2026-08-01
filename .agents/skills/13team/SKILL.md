@@ -25,9 +25,9 @@ When given a task, assess its complexity and deploy the **minimum viable swarm**
 
 | Tier | Complexity | Agents to Deploy | Example |
 |---|---|---|---|
-| **Tier 1: Light** | Simple QA, quick lookup | 3–5 (Workers + 1 Shield) | "이 논문의 N을 확인해 줘" |
-| **Tier 2: Standard** | Multi-step analysis, debugging | 6–9 (Workers + Shields) | "Validation 비교 분석 돌려줘" |
-| **Tier 3: Full Swarm** | Complex problem-solving, multi-domain debate | All 13 (Full roster) | "메타분석 방법론 전면 재검토" |
+| **Tier 1: Light** | Simple QA, quick lookup | 3–5 (Workers + 1 Shield) | "Check the N for this paper" |
+| **Tier 2: Standard** | Multi-step analysis, debugging | 6–9 (Workers + Shields) | "Run a comparative analysis on Validation" |
+| **Tier 3: Full Swarm** | Complex problem-solving, multi-domain debate | All 13 (Full roster) | "Complete review of the meta-analysis methodology" |
 
 - Assign clear, focused `Prompt` and `Role` matching their specific Layer (Worker, Shield, Troika, Evolution).
 - The Orchestrator MUST justify the chosen Tier in its execution plan before spawning.

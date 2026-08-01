@@ -5,7 +5,7 @@ description: Orchestrates the automated Real-Swarm pipeline for evaluating inclu
 
 # Skill: Include/Exclude Pipeline Orchestrator
 
-When the user asks you to "run the pipeline" or "파이프라인 돌려", you must act as the Master Orchestrator for the Include/Exclude screening process using Real Subagents. Do NOT use the dummy `run_batch.py` script.
+When the user asks you to "run the pipeline", you must act as the Master Orchestrator for the Include/Exclude screening process using Real Subagents. Do NOT use the dummy `run_batch.py` script.
 
 ## 1. Batch Payload Generation
 - Run `python .agents/skills/include_exclude_pipeline/scripts/swarm_prep.py --batch 40 --excel "target_excel_file_path.xlsx"`
