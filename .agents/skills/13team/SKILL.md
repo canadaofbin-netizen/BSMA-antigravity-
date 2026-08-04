@@ -55,7 +55,7 @@ Once The Troika reaches a consensus on how to avoid the failure mode in the futu
   2. **FULL STOP:** After creating the proposal artifact, the Orchestrator and ALL agents MUST immediately cease all tool calls. Do NOT proceed to any next step. Do NOT interpret the user's silence as approval.
   3. **Dual-Key Gate:** The rule change may ONLY be applied when BOTH conditions are met:
      - (a) The proposal artifact exists, AND
-     - (b) The human user has sent an explicit approval message (e.g., "승인", "approve", "진행해 줘")
+     - (b) The human user has sent an explicit approval message (e.g., "approve", "proceed", "go ahead")
   4. Only after explicit user approval, the Orchestrator (outside of 13team) may apply the change following the `architecture_refactoring` skill protocol (AGENTS.md Rule 12).
 - **Silence ≠ Approval:** If the user does not respond, the proposal remains permanently pending. The AI is absolutely forbidden from self-approving, auto-proceeding, or treating a timeout as implicit consent.
 
