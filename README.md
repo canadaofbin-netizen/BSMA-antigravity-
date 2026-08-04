@@ -18,22 +18,14 @@ BSMA ANTIGRAVITY/
 ├── 02_Reference_Manuals/            Coding manuals and reference documents
 ├── 03_Validation_Results/           AI validation result Excel files
 │   ├── BSMA_AI_Run_V1_AggRecovery.xlsx   V1: 115 Include / 586 Exclude
-│   └── BSMA_AI_Run_V2_Broad.xlsx         V2: Broad rules (TBD)
+│   └── BSMA_AI_Run_V2_Broad.xlsx         V2: 179 Include / 522 Exclude
 ├── 04_Reports/                      Analysis reports (Match Rate, Screening Report)
 ├── 99_Archives_and_Backups/         Backups and legacy files
-│   ├── NEVER_CHANGE_IN_ANY_CASES/   Immutable master backup (STRICTLY NO MODIFICATIONS)
-│   ├── Database_Milestones/         DB snapshots
-│   ├── Prompt_Freezes/              Pipeline rule snapshots
-│   ├── LLM_Audit_Trails/            AI audit logs
-│   ├── Cleanup_Logs/                Cleanup operation logs
-│   └── Legacy/                      Legacy code and rules
+│   └── NEVER_CHANGE_IN_ANY_CASES/   Immutable master backup (STRICTLY NO MODIFICATIONS)
 ├── .agents/                         AI agent settings and skills
 │   ├── AGENTS.md                    Global rules (SSOT)
 │   └── skills/                      Module-specific skill definitions
 ├── scratch/                         Temporary workspace (.gitignore)
-│   ├── extracted_texts/             PDF extracted texts (reusable)
-│   ├── ocr_images/                  OCR page images
-│   └── _disposable/                 Disposable scripts/intermediate results
 ├── BSMA_Master_Coding_Sheet.xlsx    Master coding sheet (50 columns, based on V1)
 ├── CHANGELOG.md                     Rule change history
 └── memory.md                        AI working memory and precedents
