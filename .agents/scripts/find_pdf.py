@@ -18,7 +18,7 @@ def find_pdf_text(article_id, excel_path="BSMA_Master_Coding_Sheet.xlsx", texts_
     art_no = int(m.group(1))
     
     # Look for the exact 1-to-1 PDF in 01_Academic_Papers
-    papers_dir = r"g:\My Drive\UCL\BSMA\BSMA ANTIGRAVITY\01_Academic_Papers"
+    papers_dir = os.path.join(os.getcwd(), "01_Academic_Papers")
     matched_pdf = None
     if os.path.exists(papers_dir):
         for f in os.listdir(papers_dir):
