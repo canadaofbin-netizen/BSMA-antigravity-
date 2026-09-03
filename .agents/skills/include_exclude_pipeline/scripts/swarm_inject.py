@@ -1,12 +1,12 @@
 """
 swarm_inject_v3.py — Security Plan v2 Applied
 ==========================================
-Layer 2: 오염 검사 (Contamination Detection)
-Layer 2: 절단 감지 (Truncation Detection)
-Layer 3: 검역 격리 (Quarantine Containment)
-Layer 3: 삼중 잠금 주입 (Triple-Lock Injection)
-Layer 4: JSON 자동 복원 (JSON Auto-Repair)
-Layer 5: 무결성 보고서 (Integrity Report)
+Layer 2: Contamination Detection
+Layer 2: Truncation Detection
+Layer 3: Quarantine Containment
+Layer 3: Triple-Lock Injection
+Layer 4: JSON Auto-Repair
+Layer 5: Integrity Report
 """
 
 import os

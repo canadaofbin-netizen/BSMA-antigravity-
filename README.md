@@ -40,9 +40,9 @@ Manual full-text screening and parameter extraction across 701 empirical papers 
 
 ```mermaid
 graph TD
-    A["<b>1. Identification (식별)</b><br>Initial Database Search Corpus<br>Web of Science, Scopus, Google Scholar<br>(N = 701)"] --> B["<b>2. Screening (스크리닝)</b><br>Full-Text Empirical Screening<br>Dual Human-AI Auditing<br>(N = 701)"]
-    B --> C["<b>3. Excluded Studies (배제)</b><br>Total Excluded Studies<br>(n = 586)"]
-    B --> D["<b>4. Final Included (최종 포함)</b><br>Zero-Order Effect Size Extraction<br>(n = 136)"]
+    A["<b>1. Identification</b><br>Initial Database Search Corpus<br>Web of Science, Scopus, Google Scholar<br>(N = 701)"] --> B["<b>2. Screening</b><br>Full-Text Empirical Screening<br>Dual Human-AI Auditing<br>(N = 701)"]
+    B --> C["<b>3. Excluded Studies</b><br>Total Excluded Studies<br>(n = 586)"]
+    B --> D["<b>4. Final Included</b><br>Zero-Order Effect Size Extraction<br>(n = 136)"]
 
     subgraph "5 Core Exclusion Reasons Breakdown"
     C --> C1["Code 1: No Effect Size / Wrong Construct (n = 216)<br><i>e.g., Work-Family boundaries, mere communication</i>"]
@@ -89,46 +89,7 @@ BSMA/
 
 ---
 
-## 4. AI Orchestration Engine (.agents/)
-
-The workspace is governed by a lightweight Single Source of Truth (SSOT) architecture compliant with DeepMind Antigravity guidelines.
-
-```mermaid
-flowchart LR
-    subgraph "Rulebook (.agents/rules/)"
-        R1["workspace_hygiene.md"]
-        R2["data_integrity.md"]
-        R3["vault_security.md"]
-    end
-
-    subgraph "Core Skills (.agents/skills/)"
-        S1["/lint<br>(통합 위생 & 데이터 감사)"]
-        S2["/includeexclude<br>(Phase 1 논문 스크리닝)"]
-        S3["batch_processor<br>(Phase 2 추출 총괄)"]
-        S4["extract_measures<br>(Phase 2 상관계수/신뢰도)"]
-    end
-
-    subgraph "Python Toolset (.agents/scripts/)"
-        T1["linter.py"]
-        T2["find_pdf.py"]
-        T3["backup_manager.py"]
-        T4["prepare_next.py"]
-    end
-
-    R1 & R2 & R3 --> S1 & S2 & S3 & S4
-    S1 --> T1
-    S2 & S3 --> T2 & T4
-    S1 & S3 --> T3
-```
-
-### Modular Rulebooks (.agents/rules/)
-* **[workspace_hygiene.md](file:///.agents/rules/workspace_hygiene.md):** Enforces PDF naming conventions (`[ID] Author (Year) - Title.pdf`), root directory zero-pollution, and ephemeral scratch containment.
-* **[data_integrity.md](file:///.agents/rules/data_integrity.md):** Mandates the **Zero Guesswork Policy** (numeric missing = `999`, text missing = `"Not Reported"`), 50-column full-extraction schema, and verbatim quote evidence standards (zero ellipses `...`).
-* **[vault_security.md](file:///.agents/rules/vault_security.md):** Absolute immutable protection for `99_Archives_and_Backups/NEVER_CHANGE_IN_ANY_CASES/`, frozen baseline definitions, and pre-modification backup requirements.
-
----
-
-## 5. Execution Commands and Workflows
+## 4. Execution Commands and Workflows
 
 ### 1. Unified Repository and Data Audit (/lint)
 Audits root hygiene, PDF filenames, Excel columns, verbatim quotes, and agent rule synchronization.
@@ -153,14 +114,14 @@ python .agents/scripts/backup_manager.py
 
 ---
 
-## 6. Inter-Rater Reliability and Verification
+## 5. Inter-Rater Reliability and Verification
 
 Comparison of 701 academic papers between Human Ground Truth and Automated AI Screening across the two methodological stages:
 
 | Evaluation Stage | Scope / Sample | Exact Matches | Discrepancies | Agreement Rate | Cohen's Kappa ($\kappa$) | Methodological Interpretation |
 |---|---|---|---|---|---|---|
-| **Stage 1: Pre-Resolution (초기 독립 심사)** | 701 Papers | 674 | 27 | **96.15%** | **0.8520** | Independent blind evaluation; *Almost Perfect* baseline agreement |
-| **Stage 2: Post-Adjudication (합의 해결 후)** | 701 Papers | 697 | 4* | **99.43%** | **0.9810** | Consensus reached following expert faculty adjudication |
+| **Stage 1: Pre-Resolution (Independent Blind Screening)** | 701 Papers | 674 | 27 | **96.15%** | **0.8520** | Independent blind evaluation; *Almost Perfect* baseline agreement |
+| **Stage 2: Post-Adjudication (Consensus Resolution)** | 701 Papers | 697 | 4* | **99.43%** | **0.9810** | Consensus reached following expert faculty adjudication |
 
 *\*The remaining 4 boundary cases represent specialized qualitative/mixed-methods nuances preserved for transparency.*
 
