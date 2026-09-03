@@ -7,7 +7,7 @@ import fitz  # PyMuPDF
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-def find_pdf_text(article_id, excel_path="BSMA_Master_Coding_Sheet.xlsx", texts_dir="03_Archives_and_Backups/pdf_texts"):
+def find_pdf_text(article_id, excel_path="03_Coding_Sheets/BSMA_Master_Coding_Sheet.xlsx", texts_dir="scratch/pdf_texts"):
     os.makedirs(texts_dir, exist_ok=True)
     target_txt = os.path.join(texts_dir, f"{article_id}.txt")
     
@@ -22,7 +22,7 @@ def find_pdf_text(article_id, excel_path="BSMA_Master_Coding_Sheet.xlsx", texts_
     matched_pdf = None
     if os.path.exists(papers_dir):
         for f in os.listdir(papers_dir):
-            if f.startswith(f"[{art_no}]") and f.lower().endswith(".pdf"):
+            if (f.startswith(f"[{art_no}]") or f.startswith(f"{art_no}_")) and f.lower().endswith(".pdf"):
                 matched_pdf = os.path.join(papers_dir, f)
                 break
     
@@ -49,8 +49,8 @@ def find_pdf_text(article_id, excel_path="BSMA_Master_Coding_Sheet.xlsx", texts_
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--id", required=True)
-    parser.add_argument("--excel", default="BSMA_Master_Coding_Sheet.xlsx")
-    parser.add_argument("--dir", default="03_Archives_and_Backups/pdf_texts")
+    parser.add_argument("--excel", default="03_Coding_Sheets/BSMA_Master_Coding_Sheet.xlsx")
+    parser.add_argument("--dir", default="scratch/pdf_texts")
     args = parser.parse_args()
     
     result = find_pdf_text(args.id, args.excel, args.dir)

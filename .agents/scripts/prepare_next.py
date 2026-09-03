@@ -50,10 +50,10 @@ def get_next_id(excel_path, csv_path):
     return f"BSMA{next_num:04d}"
 
 def main():
-    excel_path = "BSMA_Master_Coding_Sheet.xlsx"
-    csv_path = "03_Archives_and_Backups/batch_queue.csv"
+    excel_path = "03_Coding_Sheets/BSMA_Master_Coding_Sheet.xlsx" if os.path.exists("03_Coding_Sheets/BSMA_Master_Coding_Sheet.xlsx") else "BSMA_Master_Coding_Sheet.xlsx"
+    csv_path = "batch_queue.csv" if os.path.exists("batch_queue.csv") else "scratch/batch_queue.csv"
     pdf_dir = "01_Academic_Papers"
-    txt_dir = "03_Archives_and_Backups/pdf_texts"
+    txt_dir = "scratch/pdf_texts"
 
     if not os.path.exists(csv_path):
         print(json.dumps({"error": f"Queue file not found at {csv_path}"}))
