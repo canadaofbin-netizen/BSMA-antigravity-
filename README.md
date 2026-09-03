@@ -5,8 +5,9 @@
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Lint Status](https://img.shields.io/badge/linter-8%2F8%20PASS-brightgreen.svg)]()
-[![Inter-Rater Reliability](https://img.shields.io/badge/Cohen's%20Kappa-0.98%20(Near%20Perfect)-success.svg)]()
-[![Match Rate](https://img.shields.io/badge/Agreement%20Rate-99.4%25-brightgreen.svg)]()
+[![Initial Kappa](https://img.shields.io/badge/Initial%20Kappa-0.85%20(Pre--Resolution)-blue.svg)]()
+[![Final Kappa](https://img.shields.io/badge/Final%20Kappa-0.98%20(Post--Adjudication)-success.svg)]()
+[![Consensus Rate](https://img.shields.io/badge/Consensus%20Rate-99.4%25-brightgreen.svg)]()
 [![PRISMA 2020](https://img.shields.io/badge/PRISMA-Compliant-orange.svg)]()
 
 ---
@@ -26,7 +27,9 @@ This project conducts a comprehensive, large-scale **Meta-Analysis** to statisti
 
 ### Human-AI Collaborative Methodology
 Manual full-text screening and parameter extraction across 701 empirical papers traditionally suffer from coder fatigue, heuristic biases, and hallucination risks. This repository implements an **AI-orchestrated dual-auditing pipeline**:
-* **Rigorous Verification:** Benchmarked against the human ground truth, achieving **Cohen's $\kappa = 0.98$ (99.4% agreement rate)**.
+* **Two-Stage Reliability Framework:**
+  * **Stage 1 (Pre-Resolution Independent Screening):** Achieved an initial unassisted agreement rate of **96.15% (Cohen's $\kappa = 0.8520$)** across all 701 papers without inter-rater communication.
+  * **Stage 2 (Post-Adjudication Consensus):** Following expert faculty adjudication of 27 discrepancies, achieved a final consensus agreement rate of **99.43% (Cohen's $\kappa = 0.9810$)**.
 * **Dual-Phase Automation:** 
   * **Phase 1 (Screening):** High-throughput automated screening against 8 core theoretical exclusion rules.
   * **Phase 2 (Data Extraction):** 4-node parallel extraction loop parsing sample size ($N$), correlation coefficients ($r$), means/SDs, and reliability metrics ($\alpha$).
@@ -152,10 +155,19 @@ python .agents/scripts/backup_manager.py
 
 ## 6. Inter-Rater Reliability and Verification
 
+Comparison of 701 academic papers between Human Ground Truth and Automated AI Screening across the two methodological stages:
+
+| Evaluation Stage | Scope / Sample | Exact Matches | Discrepancies | Agreement Rate | Cohen's Kappa ($\kappa$) | Methodological Interpretation |
+|---|---|---|---|---|---|---|
+| **Stage 1: Pre-Resolution (초기 독립 심사)** | 701 Papers | 674 | 27 | **96.15%** | **0.8520** | Independent blind evaluation; *Almost Perfect* baseline agreement |
+| **Stage 2: Post-Adjudication (합의 해결 후)** | 701 Papers | 697 | 4* | **99.43%** | **0.9810** | Consensus reached following expert faculty adjudication |
+
+*\*The remaining 4 boundary cases represent specialized qualitative/mixed-methods nuances preserved for transparency.*
+
 * **Total Academic Papers Audited:** 701 papers (100% Census Audit)
 * **Human-Verified Included Dataset:** 123 unique papers (145 coded rows in `03_Coding_Sheets/Full text coding sheet.xlsx`)
-* **Final Inter-Rater Agreement Rate:** **99.43%**
-* **Cohen's Kappa ($\kappa$):** **`0.98`** *(Near Perfect Agreement, Landis & Koch standard)*
+* **Final Inter-Rater Consensus Agreement:** **99.43%**
+* **Final Cohen's Kappa ($\kappa$):** **`0.98`** *(Near Perfect Agreement, Landis & Koch standard)*
 
 > [!NOTE]
 > Detailed paper-by-paper discrepancy justifications, professor override rulings, and methodological precedents are permanently preserved in [`.agents/memory.md`](file:///.agents/memory.md).
