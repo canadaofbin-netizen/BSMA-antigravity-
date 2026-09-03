@@ -1,14 +1,6 @@
 # BSMA: Boundary Spanning Behavior Meta-Analysis
 
-> **Automated AI-Orchestrated Meta-Analysis Pipeline and Empirical Database**  
-> *Department of Management & International Business, University of Oklahoma*
-
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![Lint Status](https://img.shields.io/badge/linter-8%2F8%20PASS-brightgreen.svg)]()
-[![Initial Kappa](https://img.shields.io/badge/Initial%20Kappa-0.85%20(Pre--Resolution)-blue.svg)]()
-[![Final Kappa](https://img.shields.io/badge/Final%20Kappa-0.98%20(Post--Adjudication)-success.svg)]()
-[![Consensus Rate](https://img.shields.io/badge/Consensus%20Rate-99.4%25-brightgreen.svg)]()
-[![PRISMA 2020](https://img.shields.io/badge/PRISMA-Compliant-orange.svg)]()
+*Department of Management & International Business, University of Oklahoma*
 
 ---
 
