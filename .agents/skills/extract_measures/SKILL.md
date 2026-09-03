@@ -88,6 +88,10 @@ Use the `invoke_subagent` tool to spawn FOUR specialized `research` subagents in
 
 - **SEM-only Data Warning (Extraction Rule 1 supplement):** If a paper relies entirely on SEM path coefficients and does NOT provide a zero-order correlation matrix (even latent), it must be excluded for lacking extractable effect sizes. Do NOT confuse partial rectangular cross-correlation tables with full square correlation matrices.
 
+
+**[Added via Rule 9 Feedback]**
+**Extraction Rule 6: Sub-scale Item & Reliability Decomposition (Sub-dimension Mapping):** When a global construct is reported in the methodology text (e.g., "COBSBs with 13 items") but the correlation matrix breaks it down into multiple sub-scales/sub-dimensions (e.g., Service Delivery, Internal Influence), you MUST NOT blindly duplicate the global item count or global reliability across all sub-dimensions. The Text Analyzer and Orchestrator must actively parse the text to decompose and map the exact item counts (e.g., 5, 4, 4 instead of 13) and specific reliabilities to each corresponding sub-dimension. If the text does not specify the decomposed numbers, enforce the Zero Guesswork Policy (999).
+
 ## 4. Cross-References (Global DNA)
 As a domain skill, this file is governed by the global `.agents/AGENTS.md`. When executing this skill, you must remember:
 - **Rule 1 (Zero Guesswork Policy):** This is why we strictly enforce `999` and `"Not Reported"` in the JSON schemas above. Do not deviate.

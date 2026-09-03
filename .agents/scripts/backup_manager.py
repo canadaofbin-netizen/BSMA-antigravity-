@@ -5,7 +5,7 @@ from datetime import datetime
 
 def backup_databases():
     """
-    Backs up the core database files into a timestamped zip archive
+    Backs up the core database and report files into a timestamped zip archive
     in the 99_Archives_and_Backups/02_Database_Milestones directory.
     """
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -15,9 +15,12 @@ def backup_databases():
     zip_filename = os.path.join(backup_dir, f"db_milestone_{timestamp}.zip")
     
     files_to_backup = [
-        "coding sheet data extraction.xlsx",
-        "batch_queue.csv",
-        "error_log.md"
+        "03_Coding_Sheets/BSMA_Master_Coding_Sheet.xlsx",
+        "03_Coding_Sheets/Full text coding sheet.xlsx",
+        "03_Coding_Sheets/49_53_66.xlsx",
+        "04_Reports/error_report.md",
+        "04_Reports/Match_Rate_Report.md",
+        "batch_queue.csv"
     ]
     
     print(f"Initiating automated backup to {zip_filename}...")
